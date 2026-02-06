@@ -60,7 +60,7 @@ echo "Let's set up your project profile. Press Enter to skip any question."
 echo ""
 
 # Project Name
-echo -n "📁 Project name (e.g., malee-api): "
+echo -n "📁 Project name (e.g., tms, malee-api): "
 read PROJECT_NAME </dev/tty
 PROJECT_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
@@ -84,10 +84,10 @@ if [ -z "$PROJECT_NAME" ]; then
   exit 0
 fi
 
-# Client Name
-echo -n "🏢 Client name (e.g., Malee Group): "
-read CLIENT_NAME </dev/tty
-CLIENT_NAME=${CLIENT_NAME:-"$PROJECT_NAME"}
+# Clients (can be multiple)
+echo -n "🏢 Clients using this project (comma-separated, e.g., FLS, Malee, Sansiri): "
+read CLIENTS </dev/tty
+CLIENTS=${CLIENTS:-"(to be added)"}
 
 # GitHub Repo
 echo -n "🔗 GitHub repo URL (e.g., https://github.com/org/repo): "
@@ -117,7 +117,7 @@ echo "📝 Creating project profile: $PROFILE_FILE"
 
 cat > "$PROFILE_FILE" << EOF
 ## Project: ${PROJECT_NAME}
-**Client:** ${CLIENT_NAME}
+**Clients:** ${CLIENTS}
 **Repo:** ${GITHUB_URL}
 **Started:** ${TODAY}
 **Team:** ${TEAM_MEMBERS}
@@ -125,40 +125,54 @@ cat > "$PROFILE_FILE" << EOF
 
 ---
 
-### Current Reality
-> What exists and works today. Sync with codebase using /profile-sync or /profile-gen.
+### Current Reality (Core)
+> Shared features available to all clients. Sync with /profile-sync or /profile-gen.
 
 - **Tech stack:** ${TECH_STACK}
 - **Architecture:** (to be analyzed)
-- **Deployed features:** (none yet or run /profile-gen to detect)
+- **Core features:** (run /profile-gen to detect)
 - **API endpoints:** (to be documented)
 - **Database:** (to be documented)
 - **Infrastructure:** (to be documented)
 
 ---
 
+### Client Customizations
+> Client-specific features. Mark adoptable features with ⭐ for other clients.
+
+| Client | Feature | Status | Adoptable? | Notes |
+|--------|---------|--------|------------|-------|
+| - | - | - | - | - |
+
+**Status:** ✅ Deployed | 🔄 In Progress | 📋 Planned | 💡 Proposed
+
+**Adoption Queue** (features other clients want):
+- (none yet)
+
+---
+
 ### In Progress
 > Stories currently being developed this sprint.
 
-| Story | Title | Assigned | Started | Est. Completion |
-|-------|-------|----------|---------|-----------------|
-| - | - | - | - | - |
+| Story | Title | Client | Assigned | Started | Est. Completion |
+|-------|-------|--------|----------|---------|-----------------|
+| - | - | Core | - | - | - |
 
 ---
 
 ### Planned
 > Stories specified and estimated, ready for future sprints.
 
-| Story | Title | Estimate | Priority | Dependencies |
-|-------|-------|----------|----------|--------------|
-| - | - | - | - | - |
+| Story | Title | Client | Estimate | Priority | Dependencies |
+|-------|-------|--------|----------|----------|--------------|
+| - | - | Core | - | - | - |
 
 ---
 
 ### Under Consideration
 > Ideas explored in brainstorming, not yet shaped into stories.
 
-(Use /brainstorm to explore ideas)
+(Use /brainstorm to explore ideas — note which client requested)
 EOF
 
 echo "✅ Profile created!"
@@ -172,9 +186,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "🎉 Setup complete!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "Project: $PROJECT_NAME"
-echo "Profile: $PROFILE_FILE"
-echo "GitHub:  $GITHUB_URL"
+echo "Project:  $PROJECT_NAME"
+echo "Clients:  $CLIENTS"
+echo "Profile:  $PROFILE_FILE"
+echo "GitHub:   $GITHUB_URL"
 echo ""
 echo "Commands available:"
 for cmd in "${COMMANDS[@]}"; do
@@ -188,4 +203,5 @@ echo ""
 echo "Next steps:"
 echo "  1. If existing codebase: /profile-gen to detect features"
 echo "  2. Start planning: /brainstorm [topic]"
+echo "  3. Track client features in Client Customizations section"
 echo ""
