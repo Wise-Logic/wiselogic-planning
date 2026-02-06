@@ -5,7 +5,7 @@ description: Explore ideas for current project. Syncs project profile first, the
 # Brainstorm — Explore Ideas for Current Project
 
 ## Before Anything Else: Sync Profile
-1. Check the project profile in this Claude Project's context
+1. Check the project profile in `profiles/` folder
 2. Review the codebase state (ask the user for any recent updates if needed)
 3. Move any items from **Planned** or **In Progress** that are now complete → **Current Reality**
 4. Confirm the sync: briefly tell the user what moved

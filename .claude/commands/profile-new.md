@@ -6,7 +6,7 @@ description: Initialize a new project profile from planning. Use when starting a
 
 ## Process
 1. Ask for: project/client name, business context, planned tech stack, team members, timeline, constraints
-2. Generate the profile:
+2. Generate the profile in `profiles/[project-name].md`:
 
 ```markdown
 ## Project: [Name]
@@ -15,24 +15,27 @@ description: Initialize a new project profile from planning. Use when starting a
 **Team:** [Developers]
 **Tech Stack:** [Planned stack]
 
-### Current Reality (auto-synced from codebase)
+### Current Reality
 - Project initialized, no deployed features yet
+- Tech stack: [planned]
+- Infrastructure: [planned hosting/services]
 
 ### In Progress
 (empty)
 
-### Planned (not started)
-(empty — use /wiselogic-planning:brainstorm and /wiselogic-planning:story to populate)
+### Planned
+(empty — use /brainstorm and /story to populate)
 
 ### Under Consideration
-(empty — use /wiselogic-planning:brainstorm to explore ideas)
+(empty — use /brainstorm to explore ideas)
 ```
 
-3. Save as the project profile in the current Claude Project
+3. Save to `profiles/[project-name].md`
 
 ## Rules
-- Run inside the correct Claude Project for this client
+- Use lowercase, hyphenated filename: `malee-api.md`, `sansiri-mobile.md`
 - Populate through brainstorm → analyze → story workflow
+- Keep profiles in sync with actual codebase state
 
 ## Arguments
 $ARGUMENTS

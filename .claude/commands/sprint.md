@@ -1,5 +1,5 @@
 ---
-description: Plan sprint by pulling estimated stories, calculating team capacity (Team × Days × 0.6), assigning work, and checking for overcommitment.
+description: Plan sprint by pulling estimated stories, calculating team capacity (Team x Days x 0.6), assigning work, and checking for overcommitment.
 ---
 
 # Sprint — Plan Sprint and Assign Work
@@ -15,13 +15,13 @@ Ask the CTO if not provided:
 
 ### 2. Calculate Capacity
 ```
-Sprint Capacity = Team Size × Working Days × 0.6
+Sprint Capacity = Team Size x Working Days x 0.6
 ```
 The 0.6 reality factor accounts for meetings, bugs, context switching, learning time. Adjust upward as team matures.
 
 ### 3. Select and Assign Stories
 - Pull stories from **Planned** that have estimates
-- Flag stories without estimates — they need `/wiselogic-planning:story --estimate` first
+- Flag stories without estimates — they need `/estimate` first
 - Assign based on developer experience, workload balance, and dependencies
 
 ### 4. Check for Overcommitment
@@ -36,7 +36,7 @@ The 0.6 reality factor accounts for meetings, bugs, context switching, learning 
 **Team:** [developers]
 
 ### Capacity
-| Developer | Working Days | Capacity (×0.6) |
+| Developer | Working Days | Capacity (x0.6) |
 |-----------|-------------|-----------------|
 | Dev A     | 10          | 6 man-days      |
 | **Total** |             | **X man-days**  |

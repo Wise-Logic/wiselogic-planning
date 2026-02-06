@@ -7,7 +7,7 @@ description: Generate a project profile by analyzing an existing codebase. Use f
 ## Process
 1. Ask for: GitHub repo URL or local path, client/project name, team members, current state context
 2. Analyze codebase: detect tech stack, deployed features, API endpoints, project structure, patterns, recent git history
-3. Generate profile:
+3. Generate profile in `profiles/[project-name].md`:
 
 ```markdown
 ## Project: [Name]
@@ -16,28 +16,34 @@ description: Generate a project profile by analyzing an existing codebase. Use f
 **Team:** [Developers]
 **Tech Stack:** [Detected]
 
-### Current Reality (auto-synced from codebase)
-- Tech stack: [detected]
-- Deployed features: [list]
-- API endpoints: [detected]
-- Database: [schema summary]
-- Key patterns: [architectural patterns found]
+### Current Reality
+- **Tech stack:** [detected — e.g., .NET Core 8, React 18, PostgreSQL]
+- **Architecture:** [detected patterns — e.g., Clean Architecture, CQRS]
+- **Deployed features:**
+  - [Feature 1]
+  - [Feature 2]
+- **API endpoints:** [summary or link to OpenAPI spec]
+- **Database:** [schema summary]
+- **Infrastructure:** [Azure/AWS services detected]
+- **Code quality notes:** [any concerns]
 
 ### In Progress
 - [from recent branches/PRs if detectable]
 
-### Planned (not started)
-(empty — populate through /wiselogic-planning:brainstorm → /wiselogic-planning:story)
+### Planned
+(empty — populate through /brainstorm → /story)
 
 ### Under Consideration
 (empty)
 ```
 
-4. Save as the project profile in the current Claude Project
+4. Save to `profiles/[project-name].md`
 
 ## Rules
 - Be thorough — this is the foundation for all planning
 - Flag code quality concerns, missing tests, security issues
+- Use lowercase, hyphenated filename
+- If codebase is large, summarize key modules rather than listing everything
 
 ## Arguments
 $ARGUMENTS
