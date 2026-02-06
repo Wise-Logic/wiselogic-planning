@@ -1,0 +1,9 @@
+{
+  "name": "wiselogic-planning",
+  "description": "CTO planning workflow for Wise Logic Company. Brainstorm ideas, analyze requirements, write stories with optional estimation, and plan sprints across multiple client projects.",
+  "version": "1.0.0",
+  "author": "Wise Logic Company Limited",
+  "homepage": "https://github.com/Wise-Logic/wiselogic-planning",
+  "repository": "https://github.com/Wise-Logic/wiselogic-planning",
+  "license": "MIT"
+}
