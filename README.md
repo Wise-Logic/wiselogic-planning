@@ -7,7 +7,7 @@ CTO planning workflow for Claude Code. Turns client ideas into well-defined stor
 Run this in any client project:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Wise-Logic/wiselogic-planning/main/setup.sh | bash
+curl -sSL https://cdn.jsdelivr.net/gh/Wise-Logic/wiselogic-planning@main/setup.sh | bash
 ```
 
 Or manually:

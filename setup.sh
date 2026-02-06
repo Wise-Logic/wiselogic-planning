@@ -5,7 +5,7 @@
 
 set -e
 
-REPO_URL="https://raw.githubusercontent.com/Wise-Logic/wiselogic-planning/main"
+REPO_URL="https://cdn.jsdelivr.net/gh/Wise-Logic/wiselogic-planning@main"
 TARGET_DIR=".claude/commands"
 PROFILES_DIR="profiles"
 
