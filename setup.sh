@@ -49,7 +49,7 @@ echo "✅ Commands installed!"
 echo ""
 
 # ─────────────────────────────────────────────────────────────────
-# Onboarding Flow
+# Onboarding Flow (read from /dev/tty for piped execution)
 # ─────────────────────────────────────────────────────────────────
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -60,7 +60,8 @@ echo "Let's set up your project profile. Press Enter to skip any question."
 echo ""
 
 # Project Name
-read -p "📁 Project name (e.g., malee-api): " PROJECT_NAME
+echo -n "📁 Project name (e.g., malee-api): "
+read PROJECT_NAME </dev/tty
 PROJECT_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
 if [ -z "$PROJECT_NAME" ]; then
@@ -84,21 +85,25 @@ if [ -z "$PROJECT_NAME" ]; then
 fi
 
 # Client Name
-read -p "🏢 Client name (e.g., Malee Group): " CLIENT_NAME
+echo -n "🏢 Client name (e.g., Malee Group): "
+read CLIENT_NAME </dev/tty
 CLIENT_NAME=${CLIENT_NAME:-"$PROJECT_NAME"}
 
 # GitHub Repo
-read -p "🔗 GitHub repo URL (e.g., https://github.com/org/repo): " GITHUB_URL
+echo -n "🔗 GitHub repo URL (e.g., https://github.com/org/repo): "
+read GITHUB_URL </dev/tty
 GITHUB_URL=${GITHUB_URL:-"(not set)"}
 
 # Team Members
-read -p "👥 Team members (comma-separated, e.g., Som, Lek, Pom): " TEAM_MEMBERS
+echo -n "👥 Team members (comma-separated, e.g., Som, Lek, Pom): "
+read TEAM_MEMBERS </dev/tty
 TEAM_MEMBERS=${TEAM_MEMBERS:-"(to be assigned)"}
 
 # Tech Stack
 echo ""
 echo "🛠️  Tech stack (press Enter for default: .NET Core, React, Azure)"
-read -p "   Custom stack: " TECH_STACK
+echo -n "   Custom stack: "
+read TECH_STACK </dev/tty
 TECH_STACK=${TECH_STACK:-".NET Core, React/Next.js, Azure"}
 
 # Get current date
